@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<a href="">
+<a href="mult.php">
 <div class="cart">
     <div class="sub_cart">
         <p class="admin_text1">Мультфильмы</p>

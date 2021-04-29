@@ -1,7 +1,7 @@
 body{
+    font-family: sans-serif;
     margin:0 auto;
     max-width: 1440px;
-    padding-top: 80px;
 }
 h4{
     text-align: center;
@@ -17,6 +17,7 @@ h4{
 }
 #name{
     font-size: 36px;
+    margin-top: 120px;
 }
 #category{
     font-size: 16px;

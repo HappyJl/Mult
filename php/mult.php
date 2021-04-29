@@ -136,7 +136,6 @@ for ($i = 0; $i < $let; $i++){
                     <div class="mult_name_authors">
                         <?php echo $authors['Фамилия']?>
                         <?php echo $authors['Имя']?>
-                        <?php echo $authors['Отчество']?>
                     </div>
                 </div>
             <?php
