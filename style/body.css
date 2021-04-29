@@ -1,0 +1,64 @@
+body{
+    margin:0 auto;
+    max-width: 1440px;
+    padding-top: 80px;
+}
+h4{
+    text-align: center;
+}
+.pers{
+    float: left;
+    max-width: 400px;
+}
+#img{
+    width: 275px;
+    height: 300px;
+    border-radius: 20px;
+}
+#name{
+    font-size: 36px;
+    margin-bottom: -10px;
+}
+#category{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 4px;
+}
+#block_actor{
+    padding-top: 125px;
+    float: right;
+    min-width: 240px;
+}
+#block_opis{
+    min-height: 200px;
+    padding-top: 125px;
+    max-width: 880px;
+    margin-left: 300px;
+
+}
+.opis{
+    padding-left: 10px;
+    font-size: 36px;
+    background-color: #FBFF2D;
+    border-radius: 20px;
+}
+#actor_img{
+    width: 161px;
+    height: 218px;
+    border-radius: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.text{
+    text-align: justify;
+    font-size: 24px;
+}
+.actor{
+    font-size: 36px;
+    background-color: #FBFF2D;
+    border-radius: 20px;
+}
+.actor_text{
+    padding-left: 50px;
+}

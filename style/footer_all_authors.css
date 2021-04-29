@@ -1,0 +1,8 @@
+.page a{
+    margin-right: 5px;
+    text-decoration: none;
+    color: black;
+}
+.page a:hover{
+    color:red;
+}
