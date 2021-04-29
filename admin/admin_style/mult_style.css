@@ -2,14 +2,28 @@ body{
     margin: 0px;
 }
 table{
-    margin-left: 50px;
-    margin-top: 50px;
+    margin: 25px 25px 0px 25px;
     font-family: sans-serif;
-    text-align: left;
+    text-align: center;
     border-collapse: separate;
-    border-spacing: 5px;
-    background-color: #ece9e0;
+    background: #ece9e0;
     color: #656665;
     border: 16px solid #ece9e0;
     border-radius: 20px;
 }
+th{
+    font-size: 18px;
+    background: #afcde7;
+    color: white;
+    padding: 10px;
+}
+td{
+    background: #f5d7bf;
+    padding: 10px;
+}
+.img_table{
+    width: 220px;
+    height: 280px;
+    border-radius: 8px;
+}
+
