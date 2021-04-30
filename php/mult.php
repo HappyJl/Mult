@@ -3,17 +3,17 @@
 //ini_set('display_startup_errors', 0);
 //error_reporting(E_ALL);
 include 'db.php';
-$result = mysqli_query($connect,"SELECT * FROM `cartoon`");
+$result = mysqli_query($connect, "SELECT * FROM `cartoon`");
 $let = $_GET['id'];
 
-for ($i = 0; $i < $let; $i++){
-   $cartoon = mysqli_fetch_assoc($result);
+for ($i = 0; $i < $let; $i++) {
+    $cartoon = mysqli_fetch_assoc($result);
 
-   $result1 = mysqli_query($connect,"SELECT * FROM `studio` WHERE `id студии` = ". $cartoon['id студии']);
-   $studio = mysqli_fetch_array($result1);
+    $result1 = mysqli_query($connect, "SELECT * FROM `studio` WHERE `id студии` = " . $cartoon['id студии']);
+    $studio = mysqli_fetch_array($result1);
 
-   $res = mysqli_query($connect,"SELECT * FROM `country` WHERE `id страны` = ". $cartoon['Страна производитель']);
-   $country = mysqli_fetch_assoc($res);
+    $res = mysqli_query($connect, "SELECT * FROM `country` WHERE `id страны` = " . $cartoon['Страна производитель']);
+    $country = mysqli_fetch_assoc($res);
 }
 ?>
 <!DOCTYPE html>
@@ -27,11 +27,12 @@ for ($i = 0; $i < $let; $i++){
     <link rel="stylesheet" href="../style/media.css">
     <script src="https://kit.fontawesome.com/94f5867c6b.js" crossorigin="anonymous"></script>
     <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
 </head>
 <header>
-    <div  id="logo">
-    <l>Мульт</l>
+    <div id="logo">
+        <l>Мульт</l>
     </div>
     <div class="category">
         <ul class="list">
@@ -46,101 +47,167 @@ for ($i = 0; $i < $let; $i++){
         </ul>
     </div>
     <div class="cont-form">
-     <form action="filter_search_cartoon.php">
-         <div>
-         <input type="text" name="search" placeholder="Поиск" id="search-form">
-         </div>
-     </form>
+        <form action="filter_search_cartoon.php">
+            <div>
+                <input type="text" name="search" placeholder="Поиск" id="search-form">
+            </div>
+        </form>
     </div>
 </header>
 
 <body>
-    <div id="name">
-    <h4><?php echo $cartoon['Название'];?></h4>
-    </div>
-    <div class="pers">
-        <h5 id="category">Мультфильм</h5>
-        <img src="../img/mult/<?php echo $cartoon['Изображение'] ?>" alt="" id="img">
-    </div>
+<div id="name">
+    <h4><?php echo $cartoon['Название']; ?></h4>
+</div>
+<div class="pers">
+    <h5 id="category">Мультфильм</h5>
+    <img src="../img/mult/<?php echo $cartoon['Изображение'] ?>" alt="" id="img">
+</div>
 
-    <div id="block_info">
-        <div class="info">Информация</div>
-        <div class="info_text">
-            <div class="info_dec"><b>Количество эпизодов: </b><?php echo $cartoon['Количество эпизодов'] ?></div>
-            <div class="info_dec"><b>Продолжительность: </b><?php echo $cartoon['Прод. эпиз.'] ?></div>
-            <div class="info_dec"><b>Год выпуска: </b><?php echo $cartoon['Год выпуска'] ?></div>
-            <div class="info_dec"><b>Страна производитель: </b><?php echo $country['Страна'] ?></div>
-            <div class="info_dec"><b>Возрастной рейтинг: </b><?php echo $cartoon['Возрастной рейтинг'] ?></div>
-            <div class="info_dec"><b>Рейтинг мультфильма: </b><?php echo $cartoon['Рейтинг мультфильма'] ?></div>
-            <div class="info_dec"><b>Жанры:</b>
-                <?php
-                $result2 = mysqli_query($connect, "SELECT * FROM `keeping` WHERE `id мультфильма` =". $cartoon['Id мультфильма']);
-                while($keeping = mysqli_fetch_assoc($result2)){
-                    $result3 = mysqli_query($connect, "SELECT * FROM `genre` WHERE `id жанра` =".$keeping['id жанра'] );
-                    $genre = mysqli_fetch_assoc($result3);
-                    echo $genre['Название'].", ";
-                }
-                ?></div>
-            <div class="info_dec"><b>Студия: </b><?php echo $studio['Название'] ?></div>
+<div id="block_info">
+    <div class="info">Информация</div>
+    <div class="info_text">
+        <div class="info_dec"><b>Количество эпизодов: </b>
+            <?php if ($cartoon['Количество эпизодов'] == 0) {
+                echo 'Неизвестно';
+            } else {
+                echo $cartoon['Количество эпизодов'];
+            }
+            ?>
         </div>
+        <div class="info_dec"><b>Продолжительность: </b>
+            <?php if ($cartoon['Прод. эпиз.'] == 0) {
+                echo 'Неизвестно';
+            } else {
+                echo $cartoon['Прод. эпиз.'];
+            }
+            ?>
+        </div>
+        <div class="info_dec"><b>Год выпуска: </b>
+            <?php if ($cartoon['Год выпуска'] == 0) {
+                echo 'Неизвестно';
+            } else {
+                echo $cartoon['Год выпуска'];
+            }
+            ?>
+        </div>
+        <div class="info_dec"><b>Страна производитель: </b><?php echo $country['Страна'] ?></div>
+        <div class="info_dec"><b>Возрастной рейтинг: </b>
+            <?php if ($cartoon['Возрастной рейтинг'] == 0) {
+                echo 'Неизвестно';
+            } else {
+                echo $cartoon['Возрастной рейтинг'];
+            }
+            ?>
+        </div>
+        <div class="info_dec"><b>Рейтинг мультфильма: </b>
+            <?php if ($cartoon['Рейтинг мультфильма'] == 0) {
+                echo 'Неизвестно';
+            } else {
+                echo $cartoon['Рейтинг мультфильма'];
+            }
+            ?>
+        </div>
+        <div class="info_dec"><b>Жанры:</b>
+            <?php
+            $result2 = mysqli_query($connect, "SELECT * FROM `keeping` WHERE `id мультфильма` =" . $cartoon['Id мультфильма']);
+            $keeping = mysqli_fetch_all($result2);
+            if ($keeping == null) {
+                echo 'Неизвестно';
+            } else {
+                foreach ($keeping as $keepings) {
+                    $result3 = mysqli_query($connect, "SELECT * FROM `genre` WHERE `id жанра` =" . $keepings['1']);
+                    $genre = mysqli_fetch_all($result3);
+                    foreach ($genre as $genres) {
+                        echo $genres['1'] . ", ";
+                    }
+                }
+            }
+            ?></div>
+        <div class="info_dec"><b>Студия: </b><?php echo $studio['Название'] ?></div>
     </div>
-    <div id="block_opis">
-        <div class="opis">Описание</div>
-        <span class="text"><?php echo $cartoon['Описание'] ?></span>
-    </div>
-
+</div>
+<div id="block_opis">
+    <div class="opis">Описание</div>
+    <span class="text">
+        <?php if ($cartoon['Описание'] == 0) {
+            echo 'Описание отсутствует';
+        } else {
+            echo $cartoon['Описание'];
+        }
+        ?>
+    </span>
+</div>
 
 
 <div id="footer">
-        <div class="footer_name">
-            <span><a href="all_person.php?id=<?php echo $cartoon['Id мультфильма']?>">Персонажи</a></span>
-        </div>
+    <div class="footer_name">
+        <span><a href="all_person.php?id=<?php echo $cartoon['Id мультфильма'] ?>">Персонажи</a></span>
+    </div>
     <?php
-    $result6 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id мультфильма` =". $cartoon['Id мультфильма']);
-    for($g = 0; $g < 2; $g++){
-        $parti = mysqli_fetch_assoc($result6);
-        $result7 = mysqli_query($connect, "SELECT * FROM `charecters`  WHERE `id персонажа` =".$parti['id персонажа']);
-        $person = mysqli_fetch_assoc($result7);
-        ?>
-        <div class="mult">
-            <div class="mult_img">
-                <a href="pers.php?id=<?php echo $person['id персонажа']?>">
-                    <img src="../img/Person/<?php echo $person['Изображение'] ?>" alt="">
-                </a>
+    $i = 0;
+    $result6 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id мультфильма` =" . $cartoon['Id мультфильма']);
+
+    while ($id_pers = mysqli_fetch_assoc($result6)) {
+        if ($id_pers == null) {
+            echo 'Персонажей пока нет';
+        } else {
+            $char = mysqli_query($connect, "SELECT * FROM `charecters` WHERE `id персонажа` =" . $id_pers['id персонажа']);
+            $chars = mysqli_fetch_assoc($char);
+            $i++;
+            ?>
+            <div class="mult">
+                <div class="mult_img">
+                    <a href="pers.php?id=<?php echo $chars['id персонажа'] ?>">
+                        <img src="../img/Person/<?php echo $chars['Изображение'] ?>" alt="">
+                    </a>
+                </div>
+                <div class="mult_name_person">
+                    <?php echo $chars['Имя'] ?>
+                </div>
             </div>
-            <div class="mult_name_person">
-                <?php echo $person['Имя']?>
-            </div>
-        </div>
-        <?php
+            <?php
+            if ($i > 2) {
+                break;
+            }
+        }
     }
     ?>
 </div>
+
 <div id="footer2">
-        <div class="footer_name2">
-            <span><a href="all_authors.php?id=<?php echo $cartoon['Id мультфильма']?>">Авторы</a></span>
+    <div class="footer_name2">
+        <span><a href="all_authors.php?id=<?php echo $cartoon['Id мультфильма'] ?>">Авторы</a></span>
+    </div>
+    <?php
+    $i = 0;
+    $result4 = mysqli_query($connect, "SELECT * FROM `created` WHERE `id мультфильма` =" . $cartoon['Id мультфильма']);
+    while ($created = mysqli_fetch_assoc($result4)) {
+    if ($created == null) {
+        echo 'Персонажей пока нет';
+    } else {
+    $auth = mysqli_query($connect, "SELECT * FROM `authors` WHERE `id автора` =" . $created['id автора']);
+    $auths = mysqli_fetch_assoc($auth);
+    $i++;
+        ?>
+        <div class="mult">
+            <div class="mult_img">
+                <a href="authors.php?id=<?php echo $auths['id автора']; ?>">
+                    <img src="../img/Authors/<?php echo $auths['Изображение'] ?>" alt="">
+                </a>
+            </div>
+            <div class="mult_name_authors">
+                <?php echo $auths['Фамилия'] ?>
+                <?php echo $auths['Имя'] ?>
+            </div>
         </div>
-            <?php
-            $result4 = mysqli_query($connect, "SELECT * FROM `created` WHERE `id мультфильма` =". $cartoon['Id мультфильма']);
-            for($i = 0; $i < 2; $i++){
-                $created = mysqli_fetch_assoc($result4);
-                $result5 = mysqli_query($connect, "SELECT * FROM `authors`  WHERE `id автора` =".$created['id автора']);
-                $authors = mysqli_fetch_assoc($result5);
-            ?>
-                <div class="mult">
-                    <div class="mult_img">
-                        <a href="authors.php?id=<?php echo $authors['id автора'];?>">
-                        <img src="../img/Authors/<?php echo $authors['Изображение'] ?>" alt="">
-                        </a>
-                    </div>
-                    <div class="mult_name_authors">
-                        <?php echo $authors['Фамилия']?>
-                        <?php echo $authors['Имя']?>
-                    </div>
-                </div>
-            <?php
+        <?php
+            if ($i > 1) {
+                break;
             }
-            ?>
+        }
+    }
+    ?>
 </div>
 </body>
 </html>
