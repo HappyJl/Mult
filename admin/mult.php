@@ -10,21 +10,20 @@
 </head>
 <header class="nav">
     <div class="tool"><a href="mult_control/mult_add.php">Добавить</a></div>
-    <div class="tool"><a href="mult_control/mult_edit.php">Изменить</a></div>
-    <div class="tool"><a href="mult_control/mult_delete.php">Удалить</a></div>
+    <div class="tool"><a href="main.php">Назад</a></div>
 </header>
 <body>
     <table>
         <tr>
-            <th>Id мультфильма</th>
+            <th>id</th>
             <th>Название</th>
-            <th>Количество эпизодов</th>
-            <th>Продолжительность эпизода</th>
+            <th>Кол-во серий</th>
+            <th>Прод. серий</th>
             <th>Возрастной рейтинг</th>
             <th>Год выпуска</th>
-            <th>Страна производитель</th>
+            <th>Страна создатель</th>
             <th>Описание</th>
-            <th>Рейтинг мультфильма</th>
+            <th>Рейтинг</th>
             <th>Изображение</th>
             <th>Студия</th>
         </tr>
@@ -49,6 +48,8 @@
                 <td><?php echo $mult_res['Рейтинг мультфильма']?></td>
                 <td><img class="img_table" src="../img/mult/<?php echo $mult_res['Изображение']?>" alt=""></td>
                 <td><?php echo $studio_res['Название']?></td>
+                <td><a class="edit"  href="mult_control/mult_edit.php?id=<?php echo $mult_res['Id мультфильма']?>">Изменить</a></td>
+                <td><a class="del"  href="mult_control/mult_delete.php?id=<?php echo $mult_res['Id мультфильма']?>">Удалить</a></td>
             </tr>
 <?php
     }

@@ -16,18 +16,20 @@
     <table>
         <tr>
             <th>Название*</th>
-            <th>Кол-во эпизодов</th>
-            <th>Время эпизода</th>
+            <th>Кол-во серий</th>
+            <th>Прод. серий</th>
             <th>Возрастной рейтинг</th>
             <th>Год выпуска</th>
-            <th>Страна производитель</th>
+            <th>Страна создатель</th>
             <th>Описание</th>
-            <th>Рейтинг мультфильма</th>
+            <th>Рейтинг</th>
             <th>Изображение*</th>
             <th>Студия</th>
         </tr>
         <?php
         include '../../php/db.php';
+        $genre = mysqli_query($connect, "SELECT * FROM `genre`");
+
         $stran = mysqli_query($connect, "SELECT * FROM `country`");
         $stran = mysqli_fetch_all($stran);
 
@@ -50,9 +52,10 @@
                     }
                     ?>
                 </select>
+                <div class="stran"><a href="stran.php">Нет нужной? Добавить!</a></div>
             </td>
             <td><textarea name="opis" cols="50" rows="15" id="opis"></textarea></td>
-            <td><input type="number" id="rait_mult" name="rait_mult"></td>
+            <td><input type="text" id="rait_mult" name="rait_mult"></td>
             <td><input type="file" id="img" name="img"></td>
             <td>
                 <select name="stud" id="stud">
@@ -64,16 +67,22 @@
                     }
                     ?>
                 </select>
+                <div class="stran"><a href="studio.php">Нет нужной? Добавить!</a></div>
             </td>
         </tr>
     </table>
+    <?php
+    while ($genre_res = mysqli_fetch_assoc($genre)){
+    ?>
+        <div class="genre">
+            <input type="checkbox" value="<?php echo $genre_res['id жанра'] ?>" name="chember[]"><?php echo $genre_res['Название'] ?>
+        </div>
+    <?php
+    }
+    ?>
+
     <button type="submit" id="tok">Добавить</button>
 </form>
-<?php
-    if (!empty($_GET['name']) && !empty($_GET('img'))){
-        echo "Успешно добавлено";
-    }else{
-    }
-?>
+
 </body>
 </html>

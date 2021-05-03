@@ -13,16 +13,12 @@ body{
     width: 300px;
     height: 300px;
     border-radius: 20px;
+    border: 1px solid black;
+    margin-top: 48px;
 }
 #name{
     font-size: 28px;
     height: 10px;
-    margin-left: 15px;
-}
-#category{
-    font-size: 16px;
-    font-weight: normal;
-    margin-bottom: 4px;
     margin-left: 15px;
 }
 #block_actor{

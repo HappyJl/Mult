@@ -2,7 +2,7 @@ body{
     margin: 0px;
 }
 table{
-    margin: 75px 25px 0px 25px;
+    margin: 75px 25px 0px 42%;
     font-family: sans-serif;
     text-align: center;
     border-collapse: separate;
@@ -20,12 +20,6 @@ th{
 td{
     background: #949494;
     color: white;
-}
-
-.img_table{
-    width: 220px;
-    height: 280px;
-    border-radius: 8px;
 }
 .nav{
     font-family: sans-serif;
@@ -54,48 +48,7 @@ header a{
 #name{
     font-family: sans-serif;
     font-size: 18px;
-    width: 150px;
-}
-#kolv_ep{
-    font-family: sans-serif;
-    font-size: 18px;
-    width: 75px;
-}
-#prod_ep{
-    font-family: sans-serif;
-    font-size: 18px;
-    width: 75px;
-}
-#voz_rait{
-    font-family: sans-serif;
-    font-size: 18px;
-    width: 75px;
-}
-#year{
-    font-family: sans-serif;
-    font-size: 18px;
-    width: 75px;
-}
-#rait_mult{
-    font-family: sans-serif;
-    font-size: 18px;
-    width: 75px;
-}
-#opis{
-    font-family: sans-serif;
-    font-size: 14px;
-
-}
-#stran{
-    width: 150px;
-    font-family: sans-serif;
-    font-size: 18px;
-    margin-top: 100px;
-}
-#stud{
-    font-family: sans-serif;
-    font-size: 18px;
-    margin-top: 70px;
+    width: 300px;
 }
 input{
     color: white;
@@ -114,11 +67,11 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 #tok{
-    font-size: 48px;
+    font-size: 36px;
     font-family: sans-serif;
-    margin-top: 100px;
-    margin-left: 725px;
-    padding: 50px 125px;
+    margin-top: 50px;
+    margin-left: 43%;
+    padding: 25px 75px;
     border: none;
     border-radius: 5px;
     color: white;
@@ -130,32 +83,4 @@ input::-webkit-inner-spin-button {
     color: black;
     background-color: #ece9e0;
     transition: 0.5s;
-}
-.stran{
-    margin-top: 50px;
-    font-family: sans-serif;
-    font-size: 18px;
-}
-.stran a{
-    text-decoration: none;
-    color: white;
-}
-.stran:hover{
-    background-color: rgba(0,0,0, 0.1);
-    transition: 0.6s;
-}
-.edit{
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white;
-}
-.del{
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size: 18px;
-    color: white;
-}
-.genre{
-    float: left;
 }

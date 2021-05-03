@@ -3,18 +3,17 @@
 //ini_set('display_startup_errors', 0);
 //error_reporting(E_ALL);
 include 'db.php';
-$result = mysqli_query($connect, "SELECT * FROM `cartoon`");
 $let = $_GET['id'];
+$result = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма`=" . $let);
 
-for ($i = 0; $i < $let; $i++) {
-    $cartoon = mysqli_fetch_assoc($result);
+$cartoon = mysqli_fetch_assoc($result);
 
-    $result1 = mysqli_query($connect, "SELECT * FROM `studio` WHERE `id студии` = " . $cartoon['id студии']);
-    $studio = mysqli_fetch_array($result1);
+$result1 = mysqli_query($connect, "SELECT * FROM `studio` WHERE `id студии` = " . $cartoon['id студии']);
+$studio = mysqli_fetch_assoc($result1);
 
-    $res = mysqli_query($connect, "SELECT * FROM `country` WHERE `id страны` = " . $cartoon['Страна производитель']);
-    $country = mysqli_fetch_assoc($res);
-}
+$res = mysqli_query($connect, "SELECT * FROM `country` WHERE `id страны` = " . $cartoon['Страна производитель']);
+$country = mysqli_fetch_assoc($res);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +59,6 @@ for ($i = 0; $i < $let; $i++) {
     <h4><?php echo $cartoon['Название']; ?></h4>
 </div>
 <div class="pers">
-    <h5 id="category">Мультфильм</h5>
     <img src="../img/mult/<?php echo $cartoon['Изображение'] ?>" alt="" id="img">
 </div>
 
@@ -82,6 +80,7 @@ for ($i = 0; $i < $let; $i++) {
                 echo $cartoon['Прод. эпиз.'];
             }
             ?>
+            минут
         </div>
         <div class="info_dec"><b>Год выпуска: </b>
             <?php if ($cartoon['Год выпуска'] == 0) {
@@ -98,7 +97,7 @@ for ($i = 0; $i < $let; $i++) {
             } else {
                 echo $cartoon['Возрастной рейтинг'];
             }
-            ?>
+            ?>+
         </div>
         <div class="info_dec"><b>Рейтинг мультфильма: </b>
             <?php if ($cartoon['Рейтинг мультфильма'] == 0) {
@@ -183,25 +182,25 @@ for ($i = 0; $i < $let; $i++) {
     $i = 0;
     $result4 = mysqli_query($connect, "SELECT * FROM `created` WHERE `id мультфильма` =" . $cartoon['Id мультфильма']);
     while ($created = mysqli_fetch_assoc($result4)) {
-    if ($created == null) {
-        echo 'Персонажей пока нет';
-    } else {
-    $auth = mysqli_query($connect, "SELECT * FROM `authors` WHERE `id автора` =" . $created['id автора']);
-    $auths = mysqli_fetch_assoc($auth);
-    $i++;
-        ?>
-        <div class="mult">
-            <div class="mult_img">
-                <a href="authors.php?id=<?php echo $auths['id автора']; ?>">
-                    <img src="../img/Authors/<?php echo $auths['Изображение'] ?>" alt="">
-                </a>
+        if ($created == null) {
+            echo 'Персонажей пока нет';
+        } else {
+            $auth = mysqli_query($connect, "SELECT * FROM `authors` WHERE `id автора` =" . $created['id автора']);
+            $auths = mysqli_fetch_assoc($auth);
+            $i++;
+            ?>
+            <div class="mult">
+                <div class="mult_img">
+                    <a href="authors.php?id=<?php echo $auths['id автора']; ?>">
+                        <img src="../img/Authors/<?php echo $auths['Изображение'] ?>" alt="">
+                    </a>
+                </div>
+                <div class="mult_name_authors">
+                    <?php echo $auths['Фамилия'] ?>
+                    <?php echo $auths['Имя'] ?>
+                </div>
             </div>
-            <div class="mult_name_authors">
-                <?php echo $auths['Фамилия'] ?>
-                <?php echo $auths['Имя'] ?>
-            </div>
-        </div>
-        <?php
+            <?php
             if ($i > 1) {
                 break;
             }
