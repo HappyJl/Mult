@@ -13,7 +13,7 @@
 </header>
 <body>
 <style>
-    #id{
+    #id {
         visibility: hidden;
     }
 </style>
@@ -33,8 +33,9 @@
         </tr>
         <?php
         include '../../php/db.php';
+        $genre = mysqli_query($connect, "SELECT * FROM `genre`");
         $mult_id = $_GET['id'];
-        $mult = mysqli_query($connect,"SELECT * FROM `cartoon` WHERE `Id мультфильма`=".$mult_id);
+        $mult = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма`=" . $mult_id);
         $mult = mysqli_fetch_assoc($mult);
         $stran = mysqli_query($connect, "SELECT * FROM `country`");
         $stran = mysqli_fetch_all($stran);
@@ -77,6 +78,24 @@
         </tr>
     </table>
     <input type="hidden" id="id" name="id" value="<?= $mult['Id мультфильма'] ?>">
+    <div class="genre_block">
+        <div class="text">
+            Выберите новые жанры(Если менять не нужно, то оставьте пустым):
+        </div>
+        <?php
+        while ($genre_res = mysqli_fetch_assoc($genre)) {
+            ?>
+            <div class="genre">
+                <input type="checkbox" value="<?php echo $genre_res['id жанра'] ?>"
+                       name="chember[]"><?php echo $genre_res['Название'] ?>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <div class="error">
+
+    </div>
     <button type="submit" id="tok">Изменить</button>
 </form>
 

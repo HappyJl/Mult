@@ -1,6 +1,7 @@
 <?php
 require_once '../../php/db.php';
-
+session_start();
+$_SESSION['msg'] = '';
 $mult = mysqli_query($connect, "SELECT * FROM `cartoon`");
 $numbr_mult = 0;
 $total_mult = 0;
@@ -18,7 +19,7 @@ $stud = $_POST['stud'];
 $chek = 0;
 while ($mult_res = mysqli_fetch_assoc($mult)) {
     if ($name == $mult_res['Название']){
-        echo "Данный мультфильм есть в базе данных";
+        $_SESSION['msg'] = "Ошибка: Данный мультфильм есть в базе данных";
         $chek++;
         break;
     }else{
@@ -29,8 +30,8 @@ while ($mult_res = mysqli_fetch_assoc($mult)) {
 if ($chek == 0){
     $id = $numbr_mult + 1;
     if ($name == null) {
-        $error = "Введите название";
-        //header("Location: mult_add.php");
+        $_SESSION['msg'] = "Ошибка: Введите название мультфильма";
+        header("Location: mult_add.php");
     } else {
         $prov++;
     }
@@ -50,7 +51,7 @@ if ($chek == 0){
         $rait_mult = 0;
         $prov++;
     }else if($rait_mult >= 11 || $rait_mult < 0){
-        echo "lox";
+        $_SESSION['msg'] = "Ошибка: Введите рейтинг в диапазоне от 0 до 10";
         header("Location: mult_add.php");
     }else{
         $prov++;
@@ -61,16 +62,16 @@ if ($chek == 0){
     if (!empty($_POST["chember"])) {
         $prov++;
     } else {
-        echo "Выберите жанр";
+        $_SESSION['msg'] = "Ошибка: Выберите жанр мультфильма";
+        header("Location: mult_add.php");
     }
 
     $_FILES['img']['name'] = $id.'.jpg';
     $file_name = $_FILES['img']['name'];
     if ($_FILES['img']['size'] == null){
-        echo "Добавьте картинку";
+        $_SESSION['msg'] = "Ошибка: Добавте картинку";
         header("Location: mult_add.php");
     }else{
-        echo "Скопирован";
         $prov++;
     }
     if ($prov == 4) {
@@ -82,8 +83,10 @@ if ($chek == 0){
             mysqli_query($connect, "INSERT INTO `keeping`(`id мультфильма`, `id жанра`) VALUE('$id','$chember')");
         }
         header("Location: mult_add.php");
+        $_SESSION['msg'] = "Мультфильм добавлен";
     }
 }else{
+    header("Location: mult_add.php");
     echo "Сломалось";
 }
 

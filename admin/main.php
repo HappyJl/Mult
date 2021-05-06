@@ -18,7 +18,7 @@
 </div>
 </a>
 
-<a href="">
+<a href="char.php">
     <div class="cart">
         <div class="sub_cart">
             <p class="admin_text2">Персонажи</p>
@@ -26,7 +26,7 @@
     </div>
 </a>
 
-<a href="">
+<a href="autors.php">
     <div class="cart">
         <div class="sub_cart">
             <p class="admin_text3">Авторы</p>
@@ -34,7 +34,7 @@
     </div>
 </a>
 
-<a href="">
+<a href="actor.php">
     <div class="cart">
         <div class="sub_cart">
             <p class="admin_text4">Актеры озвучки</p>

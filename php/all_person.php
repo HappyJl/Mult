@@ -23,7 +23,6 @@ for ($i = 0; $i < $let; $i++){
     Мульт
     </div>
     <div class="category">
-        <img src="../img/Vector.png" alt="" class="cat_img">
         <ul class="list">
             <li>
                 <a href="filter_person.php" class="font-main">Персонажи</a>

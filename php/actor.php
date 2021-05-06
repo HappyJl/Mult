@@ -1,11 +1,9 @@
 <?php
 include 'db.php';
-$result = mysqli_query($connect,"SELECT * FROM `voice-actors`");
 $let = $_GET['id'];
+$result = mysqli_query($connect,"SELECT * FROM `voice-actors` WHERE `id актера`=".$let);
+$voice_actor = mysqli_fetch_assoc($result);
 
-for ($i = 0; $i < $let; $i++){
-    $voice_actor = mysqli_fetch_assoc($result);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +53,7 @@ for ($i = 0; $i < $let; $i++){
     <div id="block_actor">
         <div class="actor"><span class="actor_text">Персонаж</span></div>
         <?php
+        $char = 0;
         $result2 = mysqli_query($connect, "SELECT * FROM `voice` WHERE `id актера` =". $voice_actor['id актера']);
         while($voice = mysqli_fetch_assoc($result2)){
             $result3 = mysqli_query($connect, "SELECT * FROM `charecters`  WHERE `id персонажа` =". $voice['id персонажа']);
@@ -81,16 +80,21 @@ for ($i = 0; $i < $let; $i++){
         </div>
         <div>
             <?php
-            $result4 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id персонажа` =". $char['id персонажа']);
-            while($part = mysqli_fetch_assoc($result4)){
-                $result5 = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма` = ". $part['id мультфильма']);
-                $cartoon = mysqli_fetch_assoc($result5);
-                ?>
-                <a href="mult.php?id=<?php echo $cartoon['Id мультфильма'];?>">
-                    <img src="../img/mult/<?php echo $cartoon['Изображение']?>" alt="" id="mult_img">
-                </a>
-                <?php
+            if ($char == null){
+
+            }else{
+                $result4 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id персонажа` =". $char['id персонажа']);
+                while($part = mysqli_fetch_assoc($result4)){
+                    $result5 = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма` = ". $part['id мультфильма']);
+                    $cartoon = mysqli_fetch_assoc($result5);
+                    ?>
+                    <a href="mult.php?id=<?php echo $cartoon['Id мультфильма'];?>">
+                        <img src="../img/mult/<?php echo $cartoon['Изображение']?>" alt="" id="mult_img">
+                    </a>
+                    <?php
+                }
             }
+
             ?>
         </div>
 

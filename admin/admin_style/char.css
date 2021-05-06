@@ -2,7 +2,7 @@ body{
     margin: 0px;
 }
 table{
-    margin: 75px 25px 0px 25px;
+    margin: 75px 25px 0px 500px;
     font-family: sans-serif;
     text-align: center;
     border-collapse: separate;
@@ -54,7 +54,7 @@ header a{
 #name{
     font-family: sans-serif;
     font-size: 18px;
-    width: 150px;
+    width: 250px;
 }
 #kolv_ep{
     font-family: sans-serif;
@@ -156,18 +156,17 @@ input::-webkit-inner-spin-button {
     font-size: 18px;
     color: white;
 }
-.genre{
-    float: left;
-}
 .genre_block{
+    margin-top: 15px;
+    min-height: 90px;
     background-color: #ece9e0;
     font-family: sans-serif;
-    border: 28px solid #ece9e0;
     border-radius: 20px;
-    margin: 25px 25px 0px 25px;
+
 }
 .genre{
-    margin-left: 25px;
+    margin-left: 50px;
+    float: left;
 }
 .text{
     padding-bottom: 15px;
@@ -185,22 +184,18 @@ input::-webkit-inner-spin-button {
 .susu:hover{
     background-color: rgba(1, 1, 1, 0.5);
     transition: 0.4s;
-
 }
 .pers_add{
-    float: right;
-    font-family: sans-serif;
     font-size: 18px;
+    font-family: sans-serif;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 .pers_add a{
     text-decoration: none;
     color: black;
 }
-.pers_add:hover{
+.pers_add a:hover{
     border-bottom: 2px solid black;
-}
-.error{
-    font-family: sans-serif;
-    font-size: 24px;
-    margin-left: 50px;
 }

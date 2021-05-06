@@ -28,6 +28,8 @@
         </tr>
         <?php
         include '../../php/db.php';
+        session_start();
+        error_reporting(0);
         $genre = mysqli_query($connect, "SELECT * FROM `genre`");
 
         $stran = mysqli_query($connect, "SELECT * FROM `country`");
@@ -71,16 +73,33 @@
             </td>
         </tr>
     </table>
-    <?php
-    while ($genre_res = mysqli_fetch_assoc($genre)){
-    ?>
-        <div class="genre">
-            <input type="checkbox" value="<?php echo $genre_res['id жанра'] ?>" name="chember[]"><?php echo $genre_res['Название'] ?>
+    <div class="genre_block">
+        <div class="text">
+            Выберите жанр:
         </div>
-    <?php
-    }
-    ?>
+        <?php
+        while ($genre_res = mysqli_fetch_assoc($genre)) {
+            ?>
+            <div class="genre">
+                <input type="checkbox" value="<?php echo $genre_res['id жанра'] ?>"
+                       name="chember[]"><?php echo $genre_res['Название'] ?>
+            </div>
+            <?php
+        }
+        ?>
+        <div class="pers_add">
+            <a href="../mult_control/genre.php">
+                Нет нужного жанра? Добавить!
+            </a>
+        </div>
+    </div>
 
+    <div class="error">
+        <?php
+        echo $_SESSION['msg'];
+        session_unset();
+        ?>
+    </div>
     <button type="submit" id="tok">Добавить</button>
 </form>
 

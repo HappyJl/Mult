@@ -2,7 +2,7 @@ body{
     margin: 0px;
 }
 table{
-    margin: 75px 25px 0px 25px;
+    margin: 75px 25px 0px 450px;
     font-family: sans-serif;
     text-align: center;
     border-collapse: separate;
@@ -59,12 +59,12 @@ header a{
 #kolv_ep{
     font-family: sans-serif;
     font-size: 18px;
-    width: 75px;
+    width: 150px;
 }
 #prod_ep{
     font-family: sans-serif;
     font-size: 18px;
-    width: 75px;
+    width: 150px;
 }
 #voz_rait{
     font-family: sans-serif;
@@ -173,20 +173,6 @@ input::-webkit-inner-spin-button {
     padding-bottom: 15px;
     margin-left: 28px;
 }
-.susu{
-    border-radius: 18px;
-}
-.susu a{
-    text-decoration: none;
-    color: white;
-    font-family: sans-serif;
-    font-size: 18px;
-}
-.susu:hover{
-    background-color: rgba(1, 1, 1, 0.5);
-    transition: 0.4s;
-
-}
 .pers_add{
     float: right;
     font-family: sans-serif;
@@ -198,9 +184,4 @@ input::-webkit-inner-spin-button {
 }
 .pers_add:hover{
     border-bottom: 2px solid black;
-}
-.error{
-    font-family: sans-serif;
-    font-size: 24px;
-    margin-left: 50px;
 }

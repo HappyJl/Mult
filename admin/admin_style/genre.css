@@ -2,7 +2,7 @@ body{
     margin: 0px;
 }
 table{
-    margin: 75px 25px 0px 25px;
+    margin: 75px 25px 0px 800px;
     font-family: sans-serif;
     text-align: center;
     border-collapse: separate;
@@ -54,7 +54,7 @@ header a{
 #name{
     font-family: sans-serif;
     font-size: 18px;
-    width: 150px;
+    width: 250px;
 }
 #kolv_ep{
     font-family: sans-serif;
@@ -114,11 +114,11 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 #tok{
-    font-size: 48px;
+    font-size: 36px;
     font-family: sans-serif;
     margin-top: 100px;
-    margin-left: 725px;
-    padding: 50px 125px;
+    margin-left: 835px;
+    padding: 25px 25px;
     border: none;
     border-radius: 5px;
     color: white;
@@ -198,9 +198,4 @@ input::-webkit-inner-spin-button {
 }
 .pers_add:hover{
     border-bottom: 2px solid black;
-}
-.error{
-    font-family: sans-serif;
-    font-size: 24px;
-    margin-left: 50px;
 }

@@ -199,8 +199,17 @@ input::-webkit-inner-spin-button {
 .pers_add:hover{
     border-bottom: 2px solid black;
 }
-.error{
+.author_dir{
     font-family: sans-serif;
-    font-size: 24px;
-    margin-left: 50px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+.author_dir a{
+    text-decoration: none;
+    color: white;
+}
+.author_dir:hover{
+    background-color: #656665;
+    transition: 0.4s;
+    border-radius: 8px;
 }

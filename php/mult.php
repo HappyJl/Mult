@@ -80,7 +80,7 @@ $country = mysqli_fetch_assoc($res);
                 echo $cartoon['Прод. эпиз.'];
             }
             ?>
-            минут
+            мин.
         </div>
         <div class="info_dec"><b>Год выпуска: </b>
             <?php if ($cartoon['Год выпуска'] == 0) {
