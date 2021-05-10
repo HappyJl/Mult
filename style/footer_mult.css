@@ -6,7 +6,7 @@
 .footer_name{
     padding-left: 10px;
     font-size: 48px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
 }
 .mult{
@@ -36,7 +36,7 @@
 .footer_name2{
     padding-left: 10px;
     font-size: 48px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
 }
 .mult_name_authors{
@@ -45,15 +45,10 @@
 }
 #footer2 a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
-#footer2 a:hover{
-    text-decoration: underline;
-}
+
 #footer a{
     text-decoration: none;
-    color: black;
-}
-#footer a:hover{
-    text-decoration: underline;
+    color: white;
 }

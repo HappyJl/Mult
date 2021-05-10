@@ -40,12 +40,7 @@ if ($chek == 0) {
     if ($opis == null) {
         $opis = 0;
     }
-    if (!empty($_POST["chember"])) {
-        $prov++;
-    } else {
-        $error = "Выберите персонажа";
-        echo $error;
-    }
+
 
 
     $_FILES['img']['name'] = $id . '.jpg';
@@ -57,12 +52,15 @@ if ($chek == 0) {
         echo "Скопирован";
         $prov++;
     }
-    if ($prov == 4) {
+    if ($prov == 3) {
         move_uploaded_file($_FILES['img']['tmp_name'], '../../img/Actors/' . $_FILES['img']['name']);
         mysqli_query($connect, "INSERT INTO `voice-actors` (`id актера`, `Фамилия`,`Имя`,`Отчество`,`Описание`,`Изображение`) VALUE ('$id','$fame','$name','$otche','$opis','$file_name')");
         $chember = $_POST["chember"];
         echo $chember;
-        mysqli_query($connect, "INSERT INTO `voice`(`id персонажа`, `id актера`) VALUE('$chember','$id')");
+        if (!empty($_POST["chember"])) {
+            mysqli_query($connect, "INSERT INTO `voice`(`id персонажа`, `id актера`) VALUE('$chember','$id')");
+        }
+
 
         header("Location: actor_add.php");
     }

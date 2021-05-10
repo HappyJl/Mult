@@ -2,6 +2,7 @@ body{
     font-family: sans-serif;
     margin:0 auto;
     max-width: 1440px;
+    background-color: rgba(105, 102, 102, 0.05);
 }
 h4{
     text-align: center;
@@ -40,8 +41,9 @@ h4{
 .opis{
     padding-left: 10px;
     font-size: 36px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
+    color: white;
 }
 #actor_img{
     width: 161px;
@@ -55,8 +57,9 @@ h4{
     font-size: 24px;
 }
 .actor{
+    color: white;
     font-size: 36px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
     width: 225px;
 

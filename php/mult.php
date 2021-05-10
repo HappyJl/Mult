@@ -92,11 +92,8 @@ $country = mysqli_fetch_assoc($res);
         </div>
         <div class="info_dec"><b>Страна производитель: </b><?php echo $country['Страна'] ?></div>
         <div class="info_dec"><b>Возрастной рейтинг: </b>
-            <?php if ($cartoon['Возрастной рейтинг'] == 0) {
-                echo 'Неизвестно';
-            } else {
+            <?php
                 echo $cartoon['Возрастной рейтинг'];
-            }
             ?>+
         </div>
         <div class="info_dec"><b>Рейтинг мультфильма: </b>

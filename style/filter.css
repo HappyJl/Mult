@@ -3,6 +3,7 @@ body{
     max-width: 1440px;
     padding-top: 80px;
     font-family: sans-serif;
+    background-color: rgba(105, 102, 102, 0.05);
 }
 h4{
     text-align: center;
@@ -13,9 +14,10 @@ h4{
     float: left;
 }
 .filter_name{
+    color: white;
     padding-left: 10px;
     font-size: 42px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
 }
 .mult_img{

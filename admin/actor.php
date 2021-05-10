@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Actor</title>
     <link rel="stylesheet" href="admin_style/mult_style.css">
+    <link rel="stylesheet" href="admin_style/media.css">
 </head>
 <header class="nav">
     <div class="tool"><a href="actor_control/actor_add.php">Добавить</a></div>

@@ -4,8 +4,9 @@
 .footer_name{
     padding-left: 10px;
     font-size: 48px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
+    color: white;
 }
 #mult_img{
     height: 247px;

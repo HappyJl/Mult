@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Char add</title>
     <link rel="stylesheet" href="../admin_style/char.css">
+    <link rel="stylesheet" href="../admin_style/media_add.css">
 </head>
 <header class="nav">
     <div class="tool"><a href="../char.php">Назад</a></div>

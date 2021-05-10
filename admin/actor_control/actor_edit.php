@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mult add</title>
     <link rel="stylesheet" href="../admin_style/actor.css">
+    <link rel="stylesheet" href="../admin_style/media_author.css">
 </head>
 <header class="nav">
     <div class="tool"><a href="../actor.php">Назад</a></div>

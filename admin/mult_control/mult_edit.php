@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mult add</title>
     <link rel="stylesheet" href="../admin_style/mult_style.css">
+    <link rel="stylesheet" href="../admin_style/media_add.css">
 </head>
 <header class="nav">
     <div class="tool"><a href="../mult.php">Назад</a></div>
@@ -92,6 +93,11 @@
             <?php
         }
         ?>
+        <div class="pers_add">
+            <a href="../mult_control/genre.php">
+                Нет нужного жанра? Добавить!
+            </a>
+        </div>
     </div>
     <div class="error">
 

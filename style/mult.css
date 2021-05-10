@@ -3,6 +3,7 @@ body{
     margin:0 auto;
     max-width: 1440px;
     padding-top: 80px;
+    background-color: rgba(105, 102, 102, 0.05);
 }
 .pers{
     float: left;
@@ -34,8 +35,9 @@ body{
 .opis{
     padding-left: 10px;
     font-size: 36px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
+    color: white;
 }
 .text{
     margin-left: 6px;
@@ -50,9 +52,10 @@ body{
 
 }
 .info{
+    color: white;
     padding-left: 15px;
     font-size: 36px;
-    background-color: #FBFF2D;
+    background-color: #7fc7ff;
     border-radius: 20px;
     margin-bottom: 15px;
 }

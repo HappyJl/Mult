@@ -156,9 +156,6 @@ input::-webkit-inner-spin-button {
     font-size: 18px;
     color: white;
 }
-.genre{
-    float: left;
-}
 .genre_block{
     background-color: #ece9e0;
     font-family: sans-serif;
@@ -168,6 +165,7 @@ input::-webkit-inner-spin-button {
 }
 .genre{
     margin-left: 25px;
+    float: left;
 }
 .text{
     padding-bottom: 15px;
