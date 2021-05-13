@@ -1,11 +1,8 @@
 <?php
 include 'db.php';
-$result = mysqli_query($connect,"SELECT * FROM `charecters`");
 $let = $_GET['id'];
-
-for ($i = 0; $i < $let; $i++){
-    $persona = mysqli_fetch_assoc($result);
-}
+$result = mysqli_query($connect, "SELECT * FROM `charecters` WHERE `id персонажа`=" . $let);
+$persona = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +15,8 @@ for ($i = 0; $i < $let; $i++){
     <link rel="stylesheet" href="../style/media.css">
 </head>
 <header>
-    <div  id="logo">
-    <l>Мульт</l>
+    <div id="logo">
+        <l>Мульт</l>
     </div>
     <div class="category">
         <ul class="list">
@@ -34,64 +31,82 @@ for ($i = 0; $i < $let; $i++){
         </ul>
     </div>
     <div class="cont-form">
-     <form action="filter_search_pers.php">
-         <div>
-         <input type="text" name="search" placeholder="Поиск" id="search-form">
-         </div>
-     </form>
+        <form action="filter_search_pers.php">
+            <div>
+                <input type="text" name="search" placeholder="Поиск" id="search-form">
+            </div>
+        </form>
     </div>
 </header>
 
 <body>
-    <div class="pers">
-        <h4 id="name"><?php echo $persona['Имя']?></h4>
-        <h4 id="category">Персонаж мультфильма</h4>
-        <img src="../img/Person/<?php echo $persona['Изображение']?>" alt="" id="img">
+<div class="mult_name"><?php echo $persona['Имя'] ?></div>
+
+<div class="content">
+    <div class="mult_info"><img class="mult_image" src="../img/Person/<?php echo $persona['Изображение'] ?>" alt="">
     </div>
-
-    <div id="block_actor">
-        <span class="actor">Актер озвучания</span>
-        <?php
-        $result4 = mysqli_query($connect, "SELECT * FROM `voice` WHERE `id персонажа` =". $persona['id персонажа']);
-        for($i =0; $i < 1; $i++){
-            $voice = mysqli_fetch_assoc($result4);
-            $result5 = mysqli_query($connect, "SELECT * FROM `voice-actors`  WHERE `id актера` =". $voice['id актера']);
-            $voice_actor = mysqli_fetch_assoc($result5);
-            ?>
-            <div>
-                <a href="actor.php?id=<?php echo $voice_actor['id актера']?>"><img src="../img/Actors/<?php echo $voice_actor['Изображение']?>" alt="" id="actor_img"></a>
-                <div class="actor_text"><?php echo $voice_actor['Фамилия']?> <?php echo $voice_actor['Имя']?></div>
-            </div>
-        <?php
-        }
-        ?>
+    <div class="mult_info_info">
+        <div class="text_info">Информация</div>
+        <div class="opis_text"><?php echo $persona['Описание'] ?></div>
     </div>
-
-<div id="block_opis">
-    <div class="opis">Описание</div>
-    <span class="text"><?php echo $persona['Описание']?></span>
-</div>
-
-
-
-<div id="footer">
-        <div class="footer_name">
-            <span> Мультфильмы</span>
-        </div>
-        <div>
-            <?php
-            $result2 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id персонажа` =". $persona['id персонажа']);
-            while($part = mysqli_fetch_assoc($result2)){
-                $result3 = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма` = ". $part['id мультфильма']);
-                $cartoon = mysqli_fetch_assoc($result3);
+    <div class="mult_info_watch">
+        <a href=""><div class="text_watch">Актер озвучивания</div></a>
+        <?php
+        $i = 0;
+        $voice = mysqli_query($connect, "SELECT * FROM `voice` WHERE `id персонажа`=" . $persona['id персонажа']);
+        while ($voice_res = mysqli_fetch_assoc($voice)) {
+            if ($voice_res == null) {
+                echo "Нет актера озвучания";
+            } else {
+                $i++;
+                $actor = mysqli_query($connect, "SELECT * FROM `voice-actors` WHERE `id актера`=" . $voice_res['id актера']);
+                $actor_res = mysqli_fetch_assoc($actor);
+                if ($i > 1){
+                    break;
+                }
                 ?>
-                <a href="mult.php?id=<?php echo $cartoon['Id мультфильма'];?>">
-                    <img src="../img/mult/<?php echo $cartoon['Изображение']?>" alt="" id="mult_img">
+                <a href="actor.php?id=<?php echo $actor_res['id актера']?>">
+                    <div class="outside">
+                        <div class="mult_info"><img class="mult_image" src="../img/Actors/<?php echo $actor_res['Изображение']?>" alt=""></div>
+                        <div><?php echo $actor_res['Фамилия']." ". $actor_res['Имя']?></div>
+                    </div>
                 </a>
                 <?php
             }
-            ?>
-        </div>
+        }
+        ?>
+
+    </div>
+</div>
+<div class="footer">
+    <div class="mult_char">
+            <div class="mult_char_text">Мультфильмы</div>
+        <?php
+        $result6 = mysqli_query($connect, "SELECT * FROM `participates` WHERE `id персонажа` =" . $persona['id персонажа']);
+
+        while ($id_pers = mysqli_fetch_assoc($result6)) {
+            if ($id_pers == null) {
+                echo 'Мультфильмов пока нет';
+            } else {
+                $char = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма` =" . $id_pers['id мультфильма']);
+                $chars = mysqli_fetch_assoc($char);
+                $i++;
+                ?>
+                <div class="mult_char_global">
+                    <div class="mult_char_img">
+                        <a href="mult.php?id=<?php echo $chars['Id мультфильма'] ?>">
+                            <img src="../img/mult/<?php echo $chars['Изображение'] ?>" alt="">
+                        </a>
+                    </div>
+                    <div class="mult_char_name">
+                        <?php echo $chars['Название'] ?>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
 
 </div>
 </body>

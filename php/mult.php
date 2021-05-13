@@ -134,7 +134,7 @@ $country = mysqli_fetch_assoc($res);
         $watch = mysqli_query($connect, "SELECT * FROM `watch` WHERE `id мультфильма`=" . $cartoon['Id мультфильма']);
         while ($watch_res = mysqli_fetch_assoc($watch)) {
             if ($watch_res == null) {
-                echo "Нет источников просмотра";
+
             } else {
                 $sours = mysqli_query($connect, "SELECT * FROM `website` WHERE `id сайта`=" . $watch_res['id сайта']);
                 $sours_res = mysqli_fetch_assoc($sours);
