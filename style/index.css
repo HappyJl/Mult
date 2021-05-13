@@ -14,21 +14,19 @@ body{
     display: flex;
 }
 .block_text{
-    width: 1600px;
+    margin-left: 625px;
 }
 .text{
-    padding-left: 760px;
-    padding-top: 140px;
+    padding-left: 100px;
     font-size: 48px;
     color: white;
 }
 .text2{
-    padding-left: 815px;
+    padding-left: 165px;
     font-size: 24px;
     color: white;
 }
 .cater{
-    padding-left: 635px;
     color: white;
     float: left;
     font-size: 24px;
@@ -43,4 +41,26 @@ a:hover{
     background-color: rgba(0,0,0, 0.7);
     border-radius: 5px;
     transition: all .5s;
+}
+@media only screen and (max-width: 1680px){
+    .block_text{
+        margin-left: 475px;
+    }
+    .back{
+        height: 762px;
+    }
+    .intro{
+        height: 762px;
+    }
+}
+@media only screen and (max-width: 1480px){
+    .block_text{
+        margin-left: 475px;
+    }
+    .back{
+        height: 762px;
+    }
+    .intro{
+        height: 762px;
+    }
 }

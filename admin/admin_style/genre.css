@@ -199,6 +199,14 @@ input::-webkit-inner-spin-button {
 .pers_add:hover{
     border-bottom: 2px solid black;
 }
+@media only screen and (max-width: 1620px){
+    #tok{
+        margin-left: 700px;
+    }
+    table{
+        margin: 75px 25px 0px 660px;
+    }
+}
 @media only screen and (max-width: 1440px){
     #tok{
         margin-left: 625px;
@@ -207,7 +215,7 @@ input::-webkit-inner-spin-button {
         margin: 75px 25px 0px 600px;
     }
 }
-@media only screen and (max-width: 1440px){
+@media only screen and (max-width: 1240px){
     #tok{
         margin-left: 525px;
     }

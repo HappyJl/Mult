@@ -14,7 +14,6 @@ $id = 0;
 $chek = 0;
 while ($author_res = mysqli_fetch_assoc($author)) {
     if ($fame == $author_res['Фамилия'] && $name == $author_res['Имя'] && $otche == $author_res['Отчество']) {
-        echo "Данный актер озвучки уже есть в базе данных";
         $chek++;
         break;
     } else {
@@ -25,42 +24,36 @@ while ($author_res = mysqli_fetch_assoc($author)) {
 if ($chek == 0) {
     $id = $numbr_mult + 1;
     if ($fame == null) {
-        $error = "Введите фамилию";
-        echo $error;
-        //header("Location: actor_add.php");
+        header("Location: author_add.php");
     } else {
         $prov++;
     }
     if ($name == null) {
-        $error = "Введите имя";
-        echo $error;
+        header("Location: author_add.php");
     } else {
         $prov++;
     }
     if ($opis == null) {
         $opis = 0;
+        header("Location: author_add.php");
     }
     if (!empty($_POST["chember"])) {
         $prov++;
     } else {
-        $error = "Выберите мультфильм";
-        echo $error;
+        header("Location: author_add.php");
     }
     if (!empty($_POST["chember1"])) {
         $prov++;
     } else {
-        $error = "Выберите его должность";
-        echo $error;
+        header("Location: author_add.php");
     }
 
 
     $_FILES['img']['name'] = $id . '.jpg';
     $file_name = $_FILES['img']['name'];
     if ($_FILES['img']['size'] == null) {
-        echo "Добавьте картинку";
-        //header("Location: actor_add.php");
+        header("Location: author_add.php");
     } else {
-        echo "Скопирован";
         $prov++;
     }
     if ($prov == 5) {
@@ -74,9 +67,9 @@ if ($chek == 0) {
             mysqli_query($connect, "INSERT INTO `car-aut`(`id автора`, `id карьеры`) VALUE('$id','$chember1')");
         }
 
-        //header("Location: author_add.php");
+        header("Location: author_add.php");
     }
 } else {
-    echo "Сломалось";
+
 }
 

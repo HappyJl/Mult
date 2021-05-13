@@ -21,10 +21,12 @@ if ($chek == 0){
     if ($name == null){
         $error = "Не указано название жанра";
         echo $error;
+        header("Location: genre.php");
     }else{
         $prov++;
     }
     if ($prov == 1){
         mysqli_query($connect,"INSERT INTO `genre`(`id жанра`,`Название`) VALUE ('$id','$name')");
+        header("Location: genre.php");
     }
 }

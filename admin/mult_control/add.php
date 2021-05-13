@@ -79,7 +79,6 @@ if ($chek == 0){
         mysqli_query($connect, "INSERT INTO `cartoon` (`Id мультфильма`, `Название`,`Количество эпизодов`,`Прод. эпиз.`,`Возрастной рейтинг`,`Год выпуска`,`Страна производитель`,`Описание`,`Рейтинг мультфильма`,`Изображение`,`id студии`)
     VALUE ('$id','$name','$kolv_ep','$prod_ep','$voz_rait','$year','$stran','$opis','$rait_mult','$file_name','$stud')");
         foreach ($_POST["chember"] as $chember){
-            echo $chember;
             mysqli_query($connect, "INSERT INTO `keeping`(`id мультфильма`, `id жанра`) VALUE('$id','$chember')");
         }
         header("Location: mult_add.php");

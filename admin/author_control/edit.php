@@ -9,12 +9,12 @@ $priv = 0;
 $_FILES['img']['name'] = $id.'.jpg';
 $file_name = $_FILES['img']['name'];
 if ($fame == null){
-    echo "Вы забыли указать фамилию";
+
 }else{
     $priv++;
 }
 if ($name == null){
-    echo "Вы забыли указать имя";
+
 }else{
     $priv++;
 }
@@ -35,5 +35,5 @@ if (!empty($_POST["chember1"])) {
 }
 if ($priv == 2){
     mysqli_query($connect,"UPDATE `authors` SET `Фамилия` = '$fame', `Имя` = '$name', `Отчество` = '$otche', `Описание` = '$opis', `Изображение` = '$file_name' WHERE `id автора` =".$id);
-    //header("Location: ../autors.php");
+    header("Location: ../autors.php");
 }

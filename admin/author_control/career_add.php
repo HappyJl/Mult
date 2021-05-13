@@ -21,10 +21,12 @@ if ($chek == 0){
     if ($name == null){
         $error = "Не указано название карьеры";
         echo $error;
+        header("Location: career.php");
     }else{
         $prov++;
     }
     if ($prov == 1){
         mysqli_query($connect,"INSERT INTO `career`(`id карьеры`,`Название`) VALUE ('$id','$name')");
+        header("Location: career.php");
     }
 }

@@ -65,7 +65,7 @@
             ?>
             <div class="genre">
                 <input type="checkbox" value="<?php echo $cartoon_res['Id мультфильма'] ?>"
-                       name="chember2[]"><?php echo $cartoon_res['Название'] . " ";
+                       name="chember1[]"><?php echo $cartoon_res['Название'] . " ";
                 ?>
             </div>
             <?php

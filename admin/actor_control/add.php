@@ -14,7 +14,7 @@ $id = 0;
 $chek = 0;
 while ($actor_res = mysqli_fetch_assoc($actor)) {
     if ($fame == $actor_res['Фамилия'] && $name == $actor_res['Имя'] && $otche == $actor_res['Отчество']) {
-        echo "Данный актер озвучки уже есть в базе данных";
+
         $chek++;
         break;
     } else {
@@ -25,15 +25,12 @@ while ($actor_res = mysqli_fetch_assoc($actor)) {
 if ($chek == 0) {
     $id = $numbr_mult + 1;
     if ($fame == null) {
-        $error = "Введите фамилию";
-        echo $error;
-        //header("Location: actor_add.php");
+        header("Location: actor_add.php");
     } else {
         $prov++;
     }
     if ($name == null) {
-        $error = "Введите имя";
-        echo $error;
+        header("Location: actor_add.php");
     } else {
         $prov++;
     }
@@ -46,10 +43,9 @@ if ($chek == 0) {
     $_FILES['img']['name'] = $id . '.jpg';
     $file_name = $_FILES['img']['name'];
     if ($_FILES['img']['size'] == null) {
-        echo "Добавьте картинку";
-        //header("Location: actor_add.php");
+        header("Location: actor_add.php");
     } else {
-        echo "Скопирован";
+
         $prov++;
     }
     if ($prov == 3) {
@@ -60,8 +56,6 @@ if ($chek == 0) {
         if (!empty($_POST["chember"])) {
             mysqli_query($connect, "INSERT INTO `voice`(`id персонажа`, `id актера`) VALUE('$chember','$id')");
         }
-
-
         header("Location: actor_add.php");
     }
 } else {

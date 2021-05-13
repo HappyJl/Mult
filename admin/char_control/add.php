@@ -31,9 +31,8 @@ if ($chek == 0){
     $file_name = $_FILES['img']['name'];
     if ($_FILES['img']['size'] == null) {
         echo "Добавьте картинку";
-        //header("Location: char_add.php");
+        header("Location: char_add.php");
     } else {
-        echo "Скопирован";
         $prov++;
     }
     if (!empty($_POST["chember1"])) {
@@ -41,12 +40,14 @@ if ($chek == 0){
     }else {
         $error = "Выберите актера озвучивания";
         echo $error;
+        header("Location: char_add.php");
     }
     if (!empty($_POST["chember2"])) {
         $prov++;
     }else {
         $error = "Выберите мультфильм";
         echo $error;
+        header("Location: char_add.php");
     }
     if ($prov == 4){
         move_uploaded_file($_FILES['img']['tmp_name'], '../../img/Person/' . $_FILES['img']['name']);
@@ -56,5 +57,7 @@ if ($chek == 0){
         foreach ($_POST["chember2"] as $chember_two){
             mysqli_query($connect, "INSERT INTO `participates`(`id мультфильма`, `id персонажа`) VALUE('$chember_two','$id')");
         }
+        header("Location: char_add.php");
+        exit;
     }
 }

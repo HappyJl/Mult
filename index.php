@@ -13,6 +13,7 @@
 <body>
     <div class="intro" id="intro">
         <div class="back">
+
             <div class="block_text">
                 <p class="text">Добро пожаловать!</p>
                 <p class="text2">Выберите нужную категорию</p>
@@ -24,6 +25,7 @@
                 </div>
 
             </div>
+
         </div>
     </div>
 
