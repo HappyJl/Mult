@@ -35,6 +35,7 @@
         <?php
         include '../../php/db.php';
         $genre = mysqli_query($connect, "SELECT * FROM `genre`");
+        $web = mysqli_query($connect, "SELECT * FROM `website`");
         $mult_id = $_GET['id'];
         $mult = mysqli_query($connect, "SELECT * FROM `cartoon` WHERE `Id мультфильма`=" . $mult_id);
         $mult = mysqli_fetch_assoc($mult);
@@ -96,6 +97,26 @@
         <div class="pers_add">
             <a href="../mult_control/genre.php">
                 Нет нужного жанра? Добавить!
+            </a>
+        </div>
+    </div>
+    <div class="genre_block">
+        <div class="text">
+            Выберите новые источники просмотра:
+        </div>
+        <?php
+        while ($web_res = mysqli_fetch_assoc($web)) {
+            ?>
+            <div class="genre">
+                <input type="checkbox" value="<?php echo $web_res['id сайта'] ?>"
+                       name="chember1[]"><?php echo $web_res['Название'] ?>
+            </div>
+            <?php
+        }
+        ?>
+        <div class="pers_add">
+            <a href="../mult_control/web.php">
+                Нет нужного сайта? Добавить!
             </a>
         </div>
     </div>

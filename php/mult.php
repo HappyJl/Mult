@@ -138,8 +138,10 @@ $country = mysqli_fetch_assoc($res);
             } else {
                 $sours = mysqli_query($connect, "SELECT * FROM `website` WHERE `id сайта`=" . $watch_res['id сайта']);
                 $sours_res = mysqli_fetch_assoc($sours);
+
+
                 ?>
-                <a href="<?php echo $watch_res['Смотреть']?>">
+                <a href="<?php echo $sours_res['link'];echo $cartoon['Название'];?>">
                     <div class="outside">
                         <?php echo $sours_res['Название']?>
                     </div>

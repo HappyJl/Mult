@@ -30,6 +30,12 @@ if (!empty($_POST["chember"])) {
         mysqli_query($connect, "INSERT INTO `keeping`(`id мультфильма`, `id жанра`) VALUE('$id','$chember')");
     }
 }
+if (!empty($_POST["chember1"])) {
+    mysqli_query($connect, "DELETE FROM `watch` WHERE `id мультфильма` ='$id'");
+    foreach ($_POST["chember1"] as $chember1){
+        mysqli_query($connect, "INSERT INTO `watch`(`id мультфильма`, `id сайта`) VALUE('$id','$chember1')");
+    }
+}
 
 if ($priv == 1){
     mysqli_query($connect,"UPDATE `cartoon` SET `Название` = '$name', `Количество эпизодов` = '$kolv_ep', `Прод. эпиз.` = '$prod_ep', `Возрастной рейтинг` = '$voz_rait', `Год выпуска` = '$year', `Страна производитель` = '$stran', `Описание` = '$stran', `Описание` = '$opis', `Рейтинг мультфильма` = '$rait_mult', `Изображение` = '$file_name', `id студии` = '$stud' WHERE `Id мультфильма` =".$id);

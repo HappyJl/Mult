@@ -32,6 +32,7 @@
         session_start();
         error_reporting(0);
         $genre = mysqli_query($connect, "SELECT * FROM `genre`");
+        $web = mysqli_query($connect, "SELECT * FROM `website`");
 
         $stran = mysqli_query($connect, "SELECT * FROM `country`");
         $stran = mysqli_fetch_all($stran);
@@ -93,6 +94,22 @@
                 Нет нужного жанра? Добавить!
             </a>
         </div>
+    </div>
+    <div class="genre_block">
+        <div class="text">
+            Выберите нужное название сайта просмотра:
+        </div>
+        <?php
+        while ($web_res = mysqli_fetch_assoc($web)) {
+            ?>
+            <div class="genre">
+                <input type="checkbox" value="<?php echo $web_res['id сайта'] ?>"
+                       name="chember1[]"><?php echo $web_res['Название'] ?>
+            </div>
+            <?php
+        }
+        ?>
+
     </div>
 
     <div class="error">

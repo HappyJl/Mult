@@ -81,6 +81,11 @@ if ($chek == 0){
         foreach ($_POST["chember"] as $chember){
             mysqli_query($connect, "INSERT INTO `keeping`(`id мультфильма`, `id жанра`) VALUE('$id','$chember')");
         }
+        if (!empty($_POST["chember1"])) {
+            foreach ($_POST["chember1"] as $chember1){
+                mysqli_query($connect, "INSERT INTO `watch`(`id мультфильма`, `id сайта`) VALUE('$id','$chember1')");
+            }
+        }
         header("Location: mult_add.php");
         $_SESSION['msg'] = "Мультфильм добавлен";
     }

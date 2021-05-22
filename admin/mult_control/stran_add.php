@@ -32,7 +32,7 @@ if ($total_mult == $numbr_mult){
 
     if ($prov == 1) {
         mysqli_query($connect, "INSERT INTO `country` (`id страны`, `Страна`) VALUE ('$id','$name')");
-        //header("Location: stran.php");
+        header("Location: stran.php");
     }
 }
 echo $prov;
